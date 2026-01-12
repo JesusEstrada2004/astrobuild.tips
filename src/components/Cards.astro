@@ -7,20 +7,26 @@ export  interface Props {
 
 const { title, time, tags } = Astro.props;
 ---
-<article class="rounded-[10px] border border-gray-200 bg-white px-4 pt-12 pb-4 dark:border-gray-700 dark:bg-gray-900">
-  <time datetime="2022-10-10" class="block text-xs text-gray-500 dark:text-gray-400">
-    {time}
-  </time>
+<div class="group relative max-w-sm rounded-xl bg-gradient-to-r from-purple-300 via-pink-300 to-indigo-300 p-[1px] transition-all hover:bg-gradient-to-br">
+  <article class="rounded-[11px] bg-white p-4 dark:bg-gray-900">
+    
+    <time class="block text-xs text-gray-500 dark:text-gray-400">
+      {time}
+    </time>
 
-  <a href="#">
-    <h3 class="mt-0.5 text-lg font-medium text-gray-900 dark:text-white">
-      {title}
-    </h3>
-  </a>
+    <a href="#">
+      <h3 class="mt-0.5 text-lg font-medium text-gray-900 dark:text-white">
+        {title}
+      </h3>
+    </a>
 
-  <div class="mt-4 flex flex-wrap gap-1">
-    <span class="rounded-full bg-purple-100 px-2.5 py-0.5 text-xs whitespace-nowrap text-purple-600 dark:bg-purple-600 dark:text-purple-100">
-      {tags}
-    </span>
-  </div>
-</article>
+    <div class="mt-4 flex flex-wrap gap-1">
+      {tags.map(tag => (
+        <span class="rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600 dark:bg-purple-600 dark:text-purple-100">
+          {tag}
+        </span>
+      ))}
+    </div>
+
+  </article>
+</div>

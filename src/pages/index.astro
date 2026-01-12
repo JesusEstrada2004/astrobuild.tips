@@ -8,15 +8,11 @@ import Cards from '../components/Cards.astro';
 ---
 <Layout>
   <Welcome />
-
-  <div class="min-h-screen flex items-center justify-center bg-indigo-600 text-white text-4xl font-bold">
-    Tailwind v4 activo y sin errores 
-  </div>
-
-  <Cards
-    time="20th Oct 2026"
-    title="Hello Astro"
-    tags={["astro", "tailwind", "components"]}
-  />
+  <main class="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-950 p-6">
+    <Cards
+      time="10th Oct 2022"
+      title="How to center an element using JavaScript and jQuery"
+      tags={['Snippet', 'JavaScript']}
+    />
+  </main>
 </Layout>
-
