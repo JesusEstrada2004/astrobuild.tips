@@ -2,17 +2,34 @@
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 import Cards from '../components/Cards.astro';
+import Header from "../components/Header.astro";
+import Hero from '../components/Hero.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
-<Layout>
-  <Welcome />
-  <main class="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-950 p-6">
-    <Cards
-      time="10th Oct 2022"
-      title="How to center an element using JavaScript and jQuery"
-      tags={['Snippet', 'JavaScript']}
-    />
-  </main>
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<Header title="AstroBuild.tips" />
+		<Hero />
+		<ul role="list" class="link-card-grid">
+			<Cards title="Hello Astro" time="2024-05-07" tags="javascript" />
+		</ul>
+	</main>
 </Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 60ch;
+	}
+
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
+</style>
