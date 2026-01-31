@@ -1,25 +1,15 @@
 ---
-import "../styles/global.css";
+import BaseHead from "../components/BaseHead.astro";
 export interface Props {
-  title: string
+	title: string;
 }
-
-const { title } = Astro.props as Props
+const { title } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-  </head>
-
-  <body class="min-h-screen bg-slate-900 text-slate-400">
-    <main class="mx-auto mt-8 max-w-xl p-4 md:p-8">
-      <div class="rounded-lg bg-white p-4 shadow">
-        <slot />
-      </div>
-    </main>
-  </body>
+<!DOCTYPE html>
+<html lang="es">
+	<BaseHead title="AstroTips" description="My First Page" />
+	<body class="h-screen">
+		<slot />
+	</body>
 </html>

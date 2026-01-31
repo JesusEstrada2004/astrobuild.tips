@@ -1,16 +1,26 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import Footer from "../../components/Footer.vue";
+import HeaderTop from "../../components/HeaderTop";
+import Header from "../../components/Header";
+import Social from "../../components/Social.svelte";
+import Base from "../../layouts/Base.astro";
 
 export async function getStaticPaths() {
-	const posts: CollectionEntry<"tips">[] = await getCollection("tips");
-
-	return posts.map((post: CollectionEntry<"tips">) => ({
+	const posts = await getCollection("tips");
+	return posts.map((post) => ({
 		params: { slug: post.slug },
 		props: post,
 	}));
 }
 
-const post = Astro.props as CollectionEntry<"tips">;
+const post = Astro.props;
 const { Content } = await post.render();
 ---
-<Content />
+
+<Base title="AstroBuild.tips">
+	<Header title="AstroBuild.tips" />
+	<Content />
+	<Social />
+	<Footer />
+</Base>
