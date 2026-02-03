@@ -2,17 +2,13 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import mdx from '@astrojs/mdx';
-
 import react from '@astrojs/react';
-
 import vue from '@astrojs/vue';
-
 import svelte from '@astrojs/svelte';
 
-export default defineConfig({
-  vite: {
-    plugins: [tailwindcss()],
-  },
+import sitemap from '@astrojs/sitemap';
 
-  integrations: [mdx(), react(), vue(), svelte()],
+export default defineConfig({
+  site: 'http://localhost:4321/.com',
+  integrations: [mdx(), react(), vue(), svelte(), sitemap()],
 });
